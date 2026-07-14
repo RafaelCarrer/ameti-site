@@ -56,7 +56,7 @@ test("PREP prompt integrity: stored prompt matches canonical exactly", () => {
   const canonical = canonicalPrepPrompt();
   const stored = storedPrepPrompt();
   assert.equal(stored, canonical);
-  assert.equal(stored.length, 5321);
+  assert.equal(stored.length, 5578);
   assert.ok(stored.startsWith("# PREP v0.1"));
   assert.ok(stored.endsWith("follow the flows and the fixed rules."));
 });
