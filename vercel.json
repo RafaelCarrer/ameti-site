@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/prep", "destination": "https://prep.md", "permanent": true },
+    { "source": "/prep/", "destination": "https://prep.md", "permanent": true }
+  ]
+}

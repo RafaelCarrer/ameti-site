@@ -23,7 +23,10 @@ export default function HomePage() {
         <h1>{home.hero.headline}</h1>
         <p>{home.hero.body}</p>
         <div className="cta-row">
-          <Link href={home.hero.ctaHref} className="cta">
+          <a href="https://prep.md" className="cta">
+            Explore PREP.md
+          </a>
+          <Link href={home.hero.ctaHref} className="cta cta--ghost">
             {home.hero.ctaLabel}
           </Link>
         </div>
