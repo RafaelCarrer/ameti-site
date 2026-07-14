@@ -34,11 +34,39 @@ test("prompt integrity: stored prompt matches canonical exactly", () => {
   assert.ok(stored.endsWith("Always follow the header and the fixed rules."));
 });
 
+// --- Canonical PREP prompt (source of truth in the prep repo) ---
+function canonicalPrepPrompt(): string {
+  let s = readFileSync(
+    join(root, "..", "prep", "prompt", "prep.en.md"),
+    "utf8"
+  ).replace(/\r\n/g, "\n");
+  s = s.replace(/^<!--[\s\S]*?-->\n\n/, "");
+  s = s.replace(/\n+$/, "");
+  return s;
+}
+
+function storedPrepPrompt(): string {
+  const ts = readFileSync(join(root, "src", "content", "prep-prompt.ts"), "utf8");
+  const m = ts.match(/PREP_PROMPT = (".*");/);
+  assert.ok(m, "PREP_PROMPT literal not found");
+  return JSON.parse(m![1]);
+}
+
+test("PREP prompt integrity: stored prompt matches canonical exactly", () => {
+  const canonical = canonicalPrepPrompt();
+  const stored = storedPrepPrompt();
+  assert.equal(stored, canonical);
+  assert.equal(stored.length, 5321);
+  assert.ok(stored.startsWith("# PREP v0.1"));
+  assert.ok(stored.endsWith("follow the flows and the fixed rules."));
+});
+
 // --- Built static output ---
 const builtPages = [
-  { file: "index.html", must: ["Small tools. One job each. Kept sharp.", "Rafael Carrer", "Explore Digita"] },
+  { file: "index.html", must: ["Small tools. One job each. Kept sharp.", "Rafael Carrer", "Explore Digita", "PREP.md", "Read the standard"] },
   { file: "digita/index.html", must: ["Turn any AI chat into a menu-driven guided program", "Copy the Digita prompt", "github.com/RafaelCarrer/digita"] },
   { file: "about/index.html", must: ["Mise en place", "kitchen manager in London", "github.com/RafaelCarrer"] },
+  { file: "prep/index.html", must: ["The memory belongs to the project, not the AI.", "Copy the PREP prompt", "github.com/RafaelCarrer/prep.md"] },
 ];
 
 for (const page of builtPages) {
@@ -66,6 +94,11 @@ test("SEO titles present in built pages", () => {
   assert.ok(
     readFileSync(join(out, "about/index.html"), "utf8").includes(
       "About AMETI — Mise en Place for Digital Work"
+    )
+  );
+  assert.ok(
+    readFileSync(join(out, "prep/index.html"), "utf8").includes(
+      "PREP.md — An Open Standard for AI-Readable Project Folders"
     )
   );
 });

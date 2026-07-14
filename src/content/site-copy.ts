@@ -3,6 +3,7 @@
 
 export const GITHUB_FOUNDER = "https://github.com/RafaelCarrer";
 export const GITHUB_DIGITA = "https://github.com/RafaelCarrer/digita";
+export const GITHUB_PREP = "https://github.com/RafaelCarrer/prep.md";
 export const TAGLINE = "Small tools. One job each. Kept sharp.";
 
 export interface ShelfItem {
@@ -25,12 +26,20 @@ export const shelf: ShelfItem[] = [
   },
   {
     number: "002",
-    name: "AMETI OS",
-    status: "In development",
-    copy: "The next tool on the shelf is being prepared. No release date is promised.",
+    name: "PREP.md",
+    status: "Open standard · Published",
+    copy: "An open standard for AI-readable project folders. The memory belongs to the project, not the AI.",
+    href: "/prep",
+    ctaLabel: "Read the standard",
   },
   {
     number: "003",
+    name: "AMETI OS",
+    status: "In development",
+    copy: "A personal operating system built on the PREP standard. No release date is promised.",
+  },
+  {
+    number: "004",
     name: "Kitchen operations system",
     status: "Private · In service",
     copy: "A working internal system shaped by day-to-day kitchen operations. It is not a public product.",
@@ -105,7 +114,8 @@ export const about = {
     heading: "The shelf today.",
     items: [
       "Digita — Open source · Published. A focused interface for one defined job, ready to explore.",
-      "AMETI OS — In development. Work is continuing without a promised release date.",
+      "PREP.md — Open standard · Published. AI-readable project folders; the memory belongs to the project.",
+      "AMETI OS — In development. A personal operating system built on the PREP standard, without a promised release date.",
       "Kitchen operations system — Private · In service. A real internal tool, not a public product.",
     ],
   },
@@ -162,6 +172,51 @@ export const digita = {
     primaryCtaLabel: "Copy the Digita prompt",
     secondaryCtaLabel: "View the open-source project on GitHub",
     secondaryCtaHref: GITHUB_DIGITA,
+    closingLine: "Small tools. One job each. Kept sharp.",
+  },
+};
+
+export const prep = {
+  hero: {
+    eyebrow: "AMETI shelf item № 002 · Open standard · Published",
+    headline: "The memory belongs to the project, not the AI.",
+    body: "PREP is an open standard for AI-readable project folders. A project is an ordinary folder in your cloud drive, arranged in a small, predictable way — any AI opens it and continues exactly where you left off. Today in ChatGPT, tomorrow in Claude, without losing a thing.",
+    secondaryCtaLabel: "Read the full spec on GitHub",
+    secondaryCtaHref: GITHUB_PREP,
+  },
+  problem: {
+    heading: "Every AI keeps its own memory. Yours shouldn't live there.",
+    body: "A long conversation grows heavy and starts to forget. Switch models and you start from nothing. The knowledge you built stays trapped inside one chat, in one product, and vanishes when the tab closes. PREP flips it: the conversation becomes a temporary interface over a permanent project.",
+  },
+  core: {
+    heading: "The whole standard fits in one glance.",
+    tree: `Sunday Sourdough/
+├── PREP.md      ← the entry point: what this is, where it stands, what to read
+├── LOG.md       ← append-only history, one dated line per session
+└── memory/      ← a full snapshot of each session`,
+    body: "Three required pieces, nothing more. PREP.md carries ABOUT, STATUS (with a date), and a MAP that tells the AI what to read and when — so it boots light instead of scanning everything. Optional folders like knowledge/ and documents/ join only when a project needs them.",
+  },
+  how: {
+    heading: "Open, work, save — on any model.",
+    steps: [
+      "Open: the AI reads PREP.md, the latest memory file, and only what the MAP indicates — then confirms in one line where you left off.",
+      "Work: the conversation happens as normal, in any AI you like.",
+      "Save: a new session snapshot, one line in the log, a fresh STATUS — every write verified before the AI says “Saved”.",
+    ],
+    note: "All projects live in one root folder whose catalogue is itself a PREP project — find anything by name, by listing, or by topic. Passwords never go in: PREP stores where a secret lives, never the secret.",
+  },
+  prompt: {
+    heading: "Run it today with one prompt",
+    intro: "The PREP prompt implements the standard in any chat with access to your cloud drive. Copy it, paste it into a Project's instructions in ChatGPT or Claude, and say “save this as a project”.",
+  },
+  relation: {
+    heading: "How it relates to MCP",
+    body: "The Model Context Protocol connects an AI to your tools. PREP connects an AI to your project. They are complementary: MCP is how an AI acts; PREP is how a project remembers. The AMETI OS is built on this standard.",
+  },
+  attribution: {
+    body: "PREP is an open standard by Rafael Carrer, a kitchen manager in London who builds his own tools. In a kitchen, prep means everything ready before service begins — PREP.md is prep for your projects. Licensed CC BY 4.0: use it, adapt it, build on it, with attribution.",
+    secondaryCtaLabel: "View the standard on GitHub",
+    secondaryCtaHref: GITHUB_PREP,
     closingLine: "Small tools. One job each. Kept sharp.",
   },
 };

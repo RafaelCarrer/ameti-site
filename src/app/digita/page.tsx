@@ -23,7 +23,11 @@ export default function DigitaPage() {
         <h1>{digita.hero.headline}</h1>
         <p>{digita.hero.body}</p>
         <div className="cta-row">
-          <CopyPromptButton />
+          <CopyPromptButton
+            text={DIGITA_PROMPT}
+            label="Copy the Digita prompt"
+            fallbackId="digita-prompt-fallback-hero"
+          />
           <a
             href={digita.hero.secondaryCtaHref}
             rel="noopener noreferrer"
@@ -73,7 +77,11 @@ export default function DigitaPage() {
         <div className="code-block">
           <pre>{DIGITA_PROMPT}</pre>
         </div>
-        <CopyPromptButton />
+        <CopyPromptButton
+          text={DIGITA_PROMPT}
+          label="Copy the Digita prompt"
+          fallbackId="digita-prompt-fallback-block"
+        />
       </section>
 
       <hr className="section-rule" />

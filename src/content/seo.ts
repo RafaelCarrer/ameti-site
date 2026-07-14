@@ -8,7 +8,7 @@ export interface RouteSeo {
   description: string;
 }
 
-export const seo: Record<"home" | "digita" | "about", RouteSeo> = {
+export const seo: Record<"home" | "digita" | "about" | "prep", RouteSeo> = {
   home: {
     path: "/",
     canonical: "https://ameti.app",
@@ -29,5 +29,12 @@ export const seo: Record<"home" | "digita" | "about", RouteSeo> = {
     title: "About AMETI — Mise en Place for Digital Work",
     description:
       "Meet AMETI and founder Rafael Carrer, a kitchen manager in London who builds focused interfaces that bring mise en place to work with existing AI.",
+  },
+  prep: {
+    path: "/prep",
+    canonical: "https://ameti.app/prep",
+    title: "PREP.md — An Open Standard for AI-Readable Project Folders",
+    description:
+      "The memory belongs to the project, not the AI. PREP is an open standard: prep a project folder once and any AI — ChatGPT, Claude, Gemini — continues where you left off.",
   },
 };
